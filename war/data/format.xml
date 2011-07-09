@@ -1,0 +1,22 @@
+<realm>
+	<properties>
+		<prop name="isGlobal" value="true" />
+		<prop name="isOpen" value="true" />
+	</properties>
+	<resources>
+		<res name="name" type="string" value="test" />
+		<res name="description" type="string" value="This is a test realm" />
+	</resources>
+	<characters>
+		<character>
+			<properties>
+				<prop name="isGlobal" value="true" />
+				<prop name="isOpen" value="true" />
+			</properties>
+			<resources>
+				<res name="name" type="string" value="Person" />
+				<res name="description" type="string" value="The first character I made" />
+			</resources>
+		</character>
+	</characters>
+</realm>
