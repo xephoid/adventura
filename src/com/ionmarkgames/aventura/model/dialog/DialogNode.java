@@ -14,6 +14,10 @@ public class DialogNode<ResourceType> implements IStorable {
 	private List<DialogVector<ResourceType>> vectors = new ArrayList<DialogVector<ResourceType>>();
 	private BaseAction action;
 	
+	public DialogNode(IStoryResource<ResourceType> dialog) {
+		this.dialog = dialog;
+	}
+	
 	public void setDialog(IStoryResource<ResourceType> dialog) {
 		this.dialog = dialog;
 	}

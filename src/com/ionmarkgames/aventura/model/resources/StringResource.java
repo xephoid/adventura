@@ -2,6 +2,10 @@ package com.ionmarkgames.aventura.model.resources;
 
 public class StringResource extends BaseResource<String> {
 
+	public StringResource(String resource) {
+		this.resource = resource;
+	}
+	
 	@Override
 	public Object getStorageFormat() {
 		return resource;

@@ -3,6 +3,7 @@ package com.ionmarkgames.aventura.controller;
 import com.ionmarkgames.aventura.model.engine.ICityAction;
 import com.ionmarkgames.aventura.model.engine.WorldResource;
 import com.ionmarkgames.aventura.model.engine.WorldResourceRequirement;
+import com.ionmarkgames.aventura.model.engine.cityactions.CityActionFactory;
 import com.ionmarkgames.aventura.model.engine.physical.City;
 
 public class CityController {
@@ -16,31 +17,21 @@ public class CityController {
 	public void findNextAction(WorldController wc) {
 		WorldResource neededResource = wc.getMostValueableResource();
 		
-		ICityAction action = neededResource.getAquireAction();
-		if (action.canDoAction(city)) {
+		ICityAction action = CityActionFactory.getCityAction(neededResource.getAquireAction(), city);
+		
+		if (action.canDoAction()) {
 			city.setCurrentAction(action);
 		} else {
-			switch (neededResource.getAquireType()) {
-				case AUTOMATIC:
-				case ASSIGNABLE:
-				case BUILDABLE:
-					action = getRequiredAction(neededResource);
-					break;
-				case COLLECTABLE:
-					/ TODO: make collectors 
-				case TRADEABLE:
-					// TODO: Build armies to attack
-				default:
-					// ????
-			}
+			action = getRequiredAction(neededResource);
 		}
 	}
 	
 	private ICityAction getRequiredAction(WorldResource needed) {
 		for (WorldResourceRequirement req : needed.getRequirements()) {
 			if (city.getResourceCount(req.getRequired()) < req.getRequiredAmount()) {
-				if (req.getRequired().getAquireAction().canDoAction(city)) {
-					return req.getRequired().getAquireAction();
+				ICityAction action = CityActionFactory.getCityAction(req.getRequired().getAquireAction(), city); 
+				if (action.canDoAction()) {
+					return action;
 				} else {
 					return getRequiredAction(req.getRequired());
 				}

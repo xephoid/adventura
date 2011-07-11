@@ -19,7 +19,7 @@ public class TradeAction extends BaseCityAction implements ICityAction {
 	}
 
 	@Override
-	public boolean canDoAction(City city) {
+	public boolean canDoAction() {
 		tradingCity = null;
 		List<WorldResource> tradableResources = new ArrayList<WorldResource>();
 		for (Entry<WorldResource, Float> entry : city.getResources().entrySet()) {
@@ -57,7 +57,7 @@ public class TradeAction extends BaseCityAction implements ICityAction {
 	}
 	
 	@Override
-	public void doAction(City city) {
+	public void doAction() {
 		Map<WorldResource, Float> cityResources = city.getResources();
 		Map<WorldResource, Float> cityGrossIncome = city.getGrossResourceIncome();
 		Map<WorldResource, Float> tradingResources = tradingCity.getResources();

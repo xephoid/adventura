@@ -2,7 +2,6 @@ package com.ionmarkgames.aventura.model.engine.cityactions;
 
 import com.ionmarkgames.aventura.model.engine.ICityAction;
 import com.ionmarkgames.aventura.model.engine.WorldResource;
-import com.ionmarkgames.aventura.model.engine.physical.City;
 import com.ionmarkgames.aventura.model.engine.physical.ResourceAcquirer;
 import com.ionmarkgames.aventura.model.engine.physical.WorldResourceLocation;
 
@@ -15,8 +14,8 @@ public class CollectAction extends BaseCityAction implements ICityAction {
 	}
 
 	@Override
-	public boolean canDoAction(City city) {
-		if (!super.canDoAction(city)) {
+	public boolean canDoAction() {
+		if (!super.canDoAction()) {
 			return false;
 		}
 		boolean hasResource = false;
@@ -30,12 +29,17 @@ public class CollectAction extends BaseCityAction implements ICityAction {
 	}
 
 	@Override
-	public void doAction(City city) {
+	public void doAction() {
 		ResourceAcquirer acquirer = city.getResourceAquirers().get(resourceType.getName()).get(0);
 		if (location != null && acquirer != null) {
 			location.setQuantity(location.getQuantity() - acquirer.getCarryQauntity());
 			procureQuantity = acquirer.getCarryQauntity();
-			super.doAction(city);
+			
+			// TODO: This is not done.
+			
+			isDone = true;
 		}
 	}
+	
+	
 }

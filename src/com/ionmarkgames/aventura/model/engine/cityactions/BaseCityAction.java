@@ -13,13 +13,14 @@ public abstract class BaseCityAction implements ICityAction {
 	protected WorldResource resourceType;
 	protected boolean isDone = false;
 	protected float procureQuantity = 1f;
+	protected City city;
 	
 	public BaseCityAction(WorldResource resourceType) {
 		this.resourceType = resourceType;
 	}
 	
 	@Override
-	public boolean canDoAction(City city) {
+	public boolean canDoAction() {
 		for (WorldResourceRequirement req : resourceType.getRequirements()) {
 			WorldResource required = req.getRequired();
 			if (city.getResourceCount(required) < req.getRequiredAmount()) {
@@ -30,13 +31,13 @@ public abstract class BaseCityAction implements ICityAction {
 	}
 	
 	@Override
-	public void doAction(City city) {
+	public boolean isDone() {
+		return isDone;
+	}
+
+	protected void recieveResource(float quantity) {
 		Map<WorldResource, Float> cityResources = city.getResources();
 		Map<WorldResource, Float> cityGrossIncome = city.getGrossResourceIncome();
-		for (WorldResourceRequirement req : resourceType.getRequirements()) {
-			WorldResource required = req.getRequired();
-			cityResources.put(required, cityResources.get(required) - req.getRequiredAmount());
-		}
 		cityResources.put(resourceType, cityResources.get(resourceType) + procureQuantity);
 		cityGrossIncome.put(resourceType, cityResources.get(resourceType) + procureQuantity);
 		
@@ -44,13 +45,30 @@ public abstract class BaseCityAction implements ICityAction {
 			ResourceAcquirer aqcuirer = (ResourceAcquirer) resourceType;
 			city.addResourceAqcuierer(aqcuirer);
 		}
-		
-		isDone = true;
 	}
 	
-	@Override
-	public boolean isDone() {
-		return isDone;
+	protected void spendResource(WorldResource resource, float quantity) {
+		Map<WorldResource, Float> cityResources = city.getResources();
+		switch (resource.getSpendType()) {
+			case ALLOCATABLE :
+				cityResources.put(resource, cityResources.get(resource) - quantity);
+				Map<WorldResource, Float> allocated = city.getAttributedResources();
+				allocated.put(resource, allocated.get(resource) + quantity);
+				break;
+			case CONSUMABLE :
+				cityResources.put(resource, cityResources.get(resource) - quantity);
+				break;
+			case NONE :
+			default :
+				break;
+		}
 	}
-
+	
+	public City getCity() {
+		return city;
+	}
+	
+	public void setCity(City city) {
+		this.city = city;
+	}
 }

@@ -22,11 +22,18 @@ public class WorldResource {
 		}
 	}
 	
+	public enum SpendType {
+		CONSUMABLE,
+		ALLOCATABLE,
+		NONE
+	}
+	
 	private String name;
 	private float value;
-	private ICityAction aquireAction;
+	private WorldResourceAquireAction aquireAction;
 	private List<WorldResourceRequirement> requirements = new ArrayList<WorldResourceRequirement>();
 	private AquireType aquireType;
+	private SpendType spendType;
 	
 	public void setName(String name) {
 		this.name = name;
@@ -55,10 +62,10 @@ public class WorldResource {
 		}
 	}
 	
-	public void setAquireAction(ICityAction aquireAction) {
+	public void setAquireAction(WorldResourceAquireAction aquireAction) {
 		this.aquireAction = aquireAction;
 	}
-	public ICityAction getAquireAction() {
+	public WorldResourceAquireAction getAquireAction() {
 		return aquireAction;
 	}
 	
@@ -85,5 +92,11 @@ public class WorldResource {
 	@Override
 	public int hashCode() {
 		return name.hashCode() + aquireType.hashCode();
+	}
+	public void setSpendType(SpendType spendType) {
+		this.spendType = spendType;
+	}
+	public SpendType getSpendType() {
+		return spendType;
 	}
 }

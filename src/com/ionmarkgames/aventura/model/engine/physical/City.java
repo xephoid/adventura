@@ -22,6 +22,7 @@ public class City implements IPhysicalObject, IResourceCollector {
 	private Map<WorldResource, Float> resources = new HashMap<WorldResource, Float>();
 	private Map<WorldResource, Float> resourceGrowthRates = new HashMap<WorldResource, Float>();
 	private Map<WorldResource, Float> grossResourceIncome = new HashMap<WorldResource, Float>();
+	private Map<WorldResource, Float> attributedResources = new HashMap<WorldResource, Float>();
 	private Map<WorldResource, List<ResourceAcquirer>> resourceAquirers = new HashMap<WorldResource, List<ResourceAcquirer>>();
 	private List<WorldResourceLocation> resourceCollectionLocations = new ArrayList<WorldResourceLocation>();
 	private List<City> neighbors = new ArrayList<City>();
@@ -161,5 +162,15 @@ public class City implements IPhysicalObject, IResourceCollector {
 	}
 	public List<WorldResource> getNeededResources() {
 		return neededResources;
+	}
+	
+	public void setAttributedResources(Map<WorldResource, Float> attributedResources) {
+		this.attributedResources = attributedResources;
+	}
+	public Map<WorldResource, Float> getAttributedResources() {
+		return attributedResources;
+	}
+	public Float getAttributedResourceCount(WorldResource key) {
+		return this.attributedResources.get(key);
 	}
 }

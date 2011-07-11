@@ -1,0 +1,31 @@
+<tree>
+	<root text="Hello there." exit="Ok, bye-bye then.">
+		<player text="What is your name?">
+			<dialog text="My name is Bob.">
+				<player text="Nice to meet you Bob!">
+					<dialog text="Nice to meet you too!">
+						<player ref="root" />
+					</dialog>
+				</player>
+				<player text="Bob is not a very original name.">
+					<dialog text="Well fuck you too!" />
+					<!-- Conversation end. -->
+				</player>
+			</dialog>
+		</player>
+		<player text="What is this?">
+			<dialog text="This is a test.">
+				<player text="I'm not sure I get it...">
+					<dialog text="You will in time.">
+						<player ref="root" />
+					</dialog>
+				</player>
+				<player text="Oh ok.">
+					<dialog text="You are a sharp one!">
+						<player ref="root" />
+					</dialog>
+				</player>
+			</dialog>
+		</player>
+	</root>
+</tree>
