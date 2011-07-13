@@ -1,7 +1,7 @@
-package com.ionmarkgames.aventura.model.actions;
+package com.ionmarkgames.aventura.model.event;
 
-public enum ActionType {
-	CUSTOM_ACTION,
+public enum EventType {
+	CUSTOM,
 	FIND_ARTIFACT,
 	MEET_CHARACTER,
 	AQUIRE_KNOWLEDGE,

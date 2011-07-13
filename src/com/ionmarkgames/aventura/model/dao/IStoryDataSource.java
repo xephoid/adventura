@@ -8,7 +8,7 @@ import com.ionmarkgames.aventura.model.Knowledge;
 import com.ionmarkgames.aventura.model.Location;
 import com.ionmarkgames.aventura.model.Objective;
 import com.ionmarkgames.aventura.model.StoryCriteria;
-import com.ionmarkgames.aventura.model.actions.BaseAction;
+import com.ionmarkgames.aventura.model.event.StoryEvent;
 
 public interface IStoryDataSource {
 	public IStorySubjectDAO<Character> getCharacterDAO();
@@ -19,5 +19,5 @@ public interface IStoryDataSource {
 	public IStorySubjectDAO<Objective> getObjectiveDAO();
 	public IStorySubjectDAO<Association> getAssociationDAO();
 	public IStorySubjectDAO<StoryCriteria> getCriteriaDAO();
-	public IStorySubjectDAO<BaseAction> getActionDAO();
+	public IStorySubjectDAO<StoryEvent> getEventnDAO();
 }

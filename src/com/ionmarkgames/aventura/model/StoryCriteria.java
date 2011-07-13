@@ -1,6 +1,6 @@
 package com.ionmarkgames.aventura.model;
 
-import com.ionmarkgames.aventura.model.actions.BaseAction;
+import com.ionmarkgames.aventura.model.event.StoryEvent;
 
 /**
  * Criteria mostly used for whether a StorySubject is visible to the player yet.
@@ -10,15 +10,15 @@ import com.ionmarkgames.aventura.model.actions.BaseAction;
  */
 public class StoryCriteria extends BaseStorySubject {
 
-	private BaseAction requiredAction;
+	private StoryEvent requiredEvent;
 	private Boolean criteriaMet = false;
 
-	public void setRequiredAction(BaseAction requiredAction) {
-		this.requiredAction = requiredAction;
+	public void setRequiredAction(StoryEvent requiredAction) {
+		this.requiredEvent = requiredAction;
 	}
 
-	public BaseAction getRequiredAction() {
-		return requiredAction;
+	public StoryEvent getRequiredAction() {
+		return requiredEvent;
 	}
 
 	public void setCriteriaMet(Boolean criteriaMet) {

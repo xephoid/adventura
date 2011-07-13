@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.ionmarkgames.aventura.model.IStorable;
-import com.ionmarkgames.aventura.model.actions.BaseAction;
+import com.ionmarkgames.aventura.model.event.StoryEvent;
 import com.ionmarkgames.aventura.model.resources.IStoryResource;
 
 public class DialogNode<ResourceType> implements IStorable {
@@ -12,7 +12,7 @@ public class DialogNode<ResourceType> implements IStorable {
 	private Long id;
 	private IStoryResource<ResourceType> dialog;
 	private List<DialogVector<ResourceType>> vectors = new ArrayList<DialogVector<ResourceType>>();
-	private BaseAction action;
+	private StoryEvent event;
 	
 	public DialogNode(IStoryResource<ResourceType> dialog) {
 		this.dialog = dialog;
@@ -47,10 +47,10 @@ public class DialogNode<ResourceType> implements IStorable {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public void setAction(BaseAction action) {
-		this.action = action;
+	public void setAction(StoryEvent action) {
+		this.event = action;
 	}
-	public BaseAction getAction() {
-		return action;
+	public StoryEvent getAction() {
+		return event;
 	}
 }

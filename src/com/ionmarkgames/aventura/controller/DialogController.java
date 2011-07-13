@@ -3,9 +3,9 @@ package com.ionmarkgames.aventura.controller;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.ionmarkgames.aventura.model.actions.BaseAction;
 import com.ionmarkgames.aventura.model.dialog.DialogTree;
 import com.ionmarkgames.aventura.model.dialog.DialogVector;
+import com.ionmarkgames.aventura.model.event.StoryEvent;
 import com.ionmarkgames.aventura.model.resources.IStoryResource;
 
 public class DialogController<ResourceType> {
@@ -35,7 +35,7 @@ public class DialogController<ResourceType> {
 		for (DialogVector<ResourceType> vector : dialogTree.getCurrentNode().getVectors()) {
 			if (id.equals(vector.getPlayerDialog().getId())) {
 				dialogTree.setCurrentNode(vector.getResponseDialog());
-				BaseAction action = vector.getResponseDialog().getAction();
+				StoryEvent action = vector.getResponseDialog().getAction();
 				if (action != null) {
 					// TODO: fire action
 				}
