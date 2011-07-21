@@ -8,10 +8,14 @@ import com.ionmarkgames.aventura.model.dialog.DialogVector;
 import com.ionmarkgames.aventura.model.event.StoryEvent;
 import com.ionmarkgames.aventura.model.resources.IStoryResource;
 
-public class DialogController<ResourceType> {
+public class DialogController<ResourceType> extends BaseController {
 	
 	private DialogTree<ResourceType> dialogTree; 
 
+	public DialogController(StoryEventHandler handler) {
+		super(handler);
+	}
+	
 	public void setDialogTree(DialogTree<ResourceType> dialogTree) {
 		this.dialogTree = dialogTree;
 	}
@@ -35,9 +39,9 @@ public class DialogController<ResourceType> {
 		for (DialogVector<ResourceType> vector : dialogTree.getCurrentNode().getVectors()) {
 			if (id.equals(vector.getPlayerDialog().getId())) {
 				dialogTree.setCurrentNode(vector.getResponseDialog());
-				StoryEvent action = vector.getResponseDialog().getAction();
-				if (action != null) {
-					// TODO: fire action
+				StoryEvent event = vector.getResponseDialog().getEvent();
+				if (event != null) {
+					fireEvent(event);
 				}
 				return vector.getResponseDialog().getDialog();
 			}

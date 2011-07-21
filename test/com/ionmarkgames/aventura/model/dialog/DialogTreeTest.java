@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import com.ionmarkgames.aventura.controller.DialogController;
+import com.ionmarkgames.aventura.controller.StoryEventHandler;
 import com.ionmarkgames.aventura.model.resources.IStoryResource;
 import com.ionmarkgames.aventura.model.resources.StringResource;
 
@@ -61,7 +62,7 @@ public class DialogTreeTest {
 		
 		dialogTree.setRoot(a);
 		
-		DialogController<String> controller = new DialogController<String>();
+		DialogController<String> controller = new DialogController<String>(new StoryEventHandler());
 		controller.setDialogTree(dialogTree);
 		
 		System.out.println(controller.startConversation().getResource());

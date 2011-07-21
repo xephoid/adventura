@@ -6,9 +6,13 @@ import com.ionmarkgames.aventura.model.engine.WorldResourceRequirement;
 import com.ionmarkgames.aventura.model.engine.cityactions.CityActionFactory;
 import com.ionmarkgames.aventura.model.engine.physical.City;
 
-public class CityController {
+public class CityController extends BaseController {
 
 	private City city;
+	
+	public CityController(StoryEventHandler handler) {
+		super(handler);
+	}
 	
 	public void setCity(City city) {
 		this.city = city;

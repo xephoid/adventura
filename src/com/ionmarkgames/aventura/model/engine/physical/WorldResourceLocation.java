@@ -3,11 +3,11 @@ package com.ionmarkgames.aventura.model.engine.physical;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ionmarkgames.aventura.model.Location;
 import com.ionmarkgames.aventura.model.engine.IResourceCollector;
 import com.ionmarkgames.aventura.model.engine.WorldResource;
 
-// TODO: associate with base story subject
-public class WorldResourceLocation implements IPhysicalObject {
+public class WorldResourceLocation extends Location implements IPhysicalObject {
 
 	private WorldResource resourceType;
 	private List<IResourceCollector> collectors = new ArrayList<IResourceCollector>();

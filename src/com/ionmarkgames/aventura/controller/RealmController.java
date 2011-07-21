@@ -2,10 +2,8 @@ package com.ionmarkgames.aventura.controller;
 
 public class RealmController extends BaseController {
 	
-	public void generateMap() {
+	public RealmController(StoryEventHandler handler) {
+		super(handler);
 	}
 	
-	public void createPaths() {
-		
-	}
 }

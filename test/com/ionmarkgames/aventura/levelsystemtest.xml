@@ -1,0 +1,49 @@
+<system>
+</system>
+<!--
+Base stats - stay static throughout the game
+   Muscle Mass - how hard you can swing a weapon
+   Brain Mass - how easily can you learn new things
+   Eye Sight - how well you can aim long ranged attacks
+   People Skills - how much do people like you?
+   Physical Training - how well can you handle yourself in a fight?
+   Speed - how fast are you?
+   
+Active stats - stats the can change during play (eg. Health, mp)
+   HP
+   Ammunition
+   Energy - used by abilities
+   Experience
+   Level
+   
+
+Mod stats - stats dependant on other stats
+   Power - Attack damage (Muscle Mass, Martial Arts, Boosters)
+   Defense - Damage decrease (Armor)
+   Range - How far you can accuratly shoot (Eye sight, Aim)
+   Energy Max - (Physical Training, Martial arts)
+   HP Max - (Muscle Mass, First Aid)
+   XP Max - (Brain Mass, Reading)
+   Charisma - (People Skills, Ego)
+   Max Carry weight - (Muscle Mass, Packrat)
+   Movement speed - (Speed, Matabolism)
+
+Skills - increased by player after each level
+   Packrat - become more efficient at packing so you can hold more stuff
+   Ego - self confidence makes people more likely to agree with you and do what you want.
+   Aim - increased accuracy with weapons
+   Martial arts - increased damage with bare hands also betteer chance to dodge attacks
+   Metabolism - increase speed
+   Reading - Effects how much xp you get for doing things
+   Beef cake - Unarmed combat
+   Lockpicking
+   Lying
+   Theft
+   First Aid
+   
+Abilities - attained by reaching specified skill levels (modifiers)
+   Ego trip - temporary ego boost
+   
+Effects stats - status effectors like poison or haste
+
+ -->

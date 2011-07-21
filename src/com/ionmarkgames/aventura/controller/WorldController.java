@@ -13,7 +13,7 @@ import com.ionmarkgames.aventura.model.engine.physical.ResourceAcquirer;
 import com.ionmarkgames.aventura.model.engine.physical.WorldResourceLocation;
 import com.ionmarkgames.aventura.model.engine.physical.City.Temperment;
 
-public class WorldController {
+public class WorldController extends BaseController {
 
 	private static final int DEFAULT_CITY_SIZE = 4;
 	private static final int WORLD_RESOURCE_PERCENTAGE = 30;
@@ -21,6 +21,10 @@ public class WorldController {
 	private static final float MAX_RESOURCE_CACHE = Float.MAX_VALUE;
 	
 	private WorldMap world = new WorldMap();
+	
+	public WorldController(StoryEventHandler handler) {
+		super(handler);
+	}
 	
 	public void generateWorld() {
 		// TODO: set up resources

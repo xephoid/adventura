@@ -47,10 +47,10 @@ public class DialogNode<ResourceType> implements IStorable {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public void setAction(StoryEvent action) {
-		this.event = action;
+	public void setAction(StoryEvent event) {
+		this.event = event;
 	}
-	public StoryEvent getAction() {
+	public StoryEvent getEvent() {
 		return event;
 	}
 }

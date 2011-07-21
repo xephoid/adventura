@@ -5,12 +5,12 @@ import java.util.List;
 import java.util.Map;
 
 import com.google.gwt.dev.util.collect.HashMap;
+import com.ionmarkgames.aventura.model.Location;
 import com.ionmarkgames.aventura.model.engine.ICityAction;
 import com.ionmarkgames.aventura.model.engine.IResourceCollector;
 import com.ionmarkgames.aventura.model.engine.WorldResource;
 
-//TODO: associate with base story subject (Location)
-public class City implements IPhysicalObject, IResourceCollector {
+public class City extends Location implements IPhysicalObject, IResourceCollector {
 	
 	public enum Temperment {
 		AGGRESSIVE,
